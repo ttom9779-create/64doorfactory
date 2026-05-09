@@ -3,11 +3,6 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "installCommand": "pnpm install --no-frozen-lockfile",
-  "nodeVersion": "20.x",
-  "env": {
-    "VITE_APP_TITLE": "64Door Factory - Premium Door Solutions",
-    "VITE_APP_ID": "64door-factory-web"
-  },
   "rewrites": [
     {
       "source": "/(.*)",

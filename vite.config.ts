@@ -205,21 +205,22 @@ function vitePluginStorageProxy(): Plugin {
 
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
-const root = path.resolve(import.meta.dirname, "client");
+const projectRoot = import.meta.dirname;
+const root = path.resolve(projectRoot, "client");
 
 export default defineConfig({
   plugins,
   resolve: {
     alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+      "@": path.resolve(root, "src"),
+      "@shared": path.resolve(projectRoot, "shared"),
+      "@assets": path.resolve(projectRoot, "attached_assets"),
     },
   },
-  envDir: path.resolve(import.meta.dirname),
+  envDir: projectRoot,
   root,
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: path.resolve(root, "../dist/public"),
     emptyOutDir: true,
   },
   server: {
